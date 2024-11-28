@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libreria</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./recursos/logo.png" type="image/x-icon" alt="Logo de la iglesia">
+</head>
+
+<body>
+    <!--Barra de navegacion de bootstrap personalizado-->
+    <header>
+        <nav class="navbar navbar-expand-lg nadvar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand"></a>
+                <img class="logonav" src="./recursos/logo.png" alt="Logo de la iglesia">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./informacion.html">Información</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./anuncios.html">Anuncios</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Más</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./devocionales.html">Devocionales</a></li>
+                                <li><a class="dropdown-item" href="./areas.html">Áreas</a></li>
+                                <li><a class="dropdown-item" href="./libreria.html">Libreria</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--Contenido-->
+    <main>
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Buscar producto...">
+            <button id="search-button">Buscar</button>
+            <button id="abrir-carrito">Abrir carrito</button>
+        </div>        
+        
+        <p class="textolibreria">Bienvenidos a nuestra librería online. Aquí podrás consultar los precios y stock de
+            nuestros productos. Además, ofrecemos una breve descripción de cada uno.</p>
+        <div class="contenedorlibro">
+            <!-- Tarjeta 1 -->
+            <div class="card" data-producto="La iniquidad" data-precio="7400">
+                <img src="./recursos/la iniquidad.webp" alt="Libro 1">
+                <h3>La iniquidad</h3>
+                <p>¿Qué es iniquidad? - El conflicto entre las dos simientes - Las Moradas de iniquidad.</p>
+                <h4>$7400</h4>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="card" data-producto="Sentados en lugares celestiales" data-precio="7700">
+                <img src="./recursos/lugares celestiales.webp" alt="Libro 2">
+                <h3>Sentados en lugares celestiales</h3>
+                <p>Un libro de reforma que lo llevará a entender el Gobierno de Dios y Su poder.</p>
+                <h4>$7700</h4>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="card" data-producto="La llave maestra de Dios" data-precio="7100">
+                <img src="./recursos/llave maestra.webp" alt="Libro 3">
+                <h3>La llave maestra de Dios</h3>
+                <p>Este libro está lleno de respuestas para vencer la adversidad tanto emocional como financiera.</p>
+                <h4>$7100</h4>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="card" data-producto="Hijos del trueno" data-precio="6500">
+                <img src="./recursos/trueno.webp" alt="Libro 4">
+                <h3>Hijos del trueno</h3>
+                <p>El Espíritu Santo está despertando a miles de niños y niñas, llevándolos a un mover sobrenatural.</p>
+                <h4>$6500</h4>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+
+            <!-- Tarjeta 5 -->
+            <div class="card" data-producto="Ayuno cuántico" data-precio="6800">
+                <img src="./recursos/ayuno.webp" alt="Libro 5">
+                <h3>Ayuno cuántico</h3>
+                <p>La combinación del ayuno y lo cuántico te llevará a entender el mundo invisible de Dios.</p>
+                <h4>$6800</h4>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+
+            <!-- Tarjeta 6 -->
+            <div class="card" data-producto="Sansón, la historia se repite" data-precio="7000">
+                <img src="./recursos/sanson.webp" alt="Libro 6">
+                <h3>Sansón, la historia se repite</h3>
+                <p>Los tiempos finales de la iglesia muestran una similitud con la historia de Sansón.</p>
+                <h4>$7000</h4>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+        </div>
+
+
+        <!-- Carrito extensible -->
+        <div id="carrito" class="carrito">
+            <div class="carrito-contenido">
+                <h2>Carrito</h2>
+                <div id="productos-carrito">
+                    <!-- Aquí se agregarán los productos -->
+                </div>
+                <div class="total">
+                    <h4>Total: $<span id="total-price">0</span></h4>
+                </div>
+                <button id="realizar-compra-btn">Realizar compra</button>
+                <button id="cerrar-carrito">Cerrar</button>
+            </div>
+        </div>
+
+        <!-- Formulario de pago -->
+        <div id="formulario-pago" class="formulario-pago">
+            <div class="formulario-contenido">
+                <h2>Formulario de pago</h2>
+                <form id="formulario" action="#">
+                    <label for="nombre-tarjeta">Nombre en la tarjeta:</label>
+                    <input type="text" id="nombre-tarjeta" placeholder="Nombre en la tarjeta" required>
+
+                    <label for="numero-tarjeta">Número de tarjeta:</label>
+                    <input type="text" id="numero-tarjeta" placeholder="1234 5678 1234 5678" required>
+
+                    <label for="fecha-expiracion">Fecha de expiración:</label>
+                    <input type="text" id="fecha-expiracion" placeholder="MM/AA" required>
+
+                    <label for="codigo-seguridad">Código de seguridad (CVV):</label>
+                    <input type="text" id="codigo-seguridad" placeholder="CVV" required>
+
+                    <button type="submit" id="confirmar-pago">Confirmar pago</button>
+                    <button type="button" id="cerrar-formulario">Cancelar</button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+
+    <!--Pie de pagina-->
+    </footer>
+    <footer class="pie">
+        <img class="logopie" src="./recursos/logo.png" alt="Logo de la iglesia">
+        <div class="contenedor2">
+            <a href="https://wa.me/3515189273" target="_blank" class="links"></a>
+            <a href="https://www.instagram.com/cca_cordoba?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank" class="links"></a>
+            <a href="https://youtube.com/@ccacordobaargentina?si=EG9z5gLLeKgZ9nyh" target="_blank" class="links"></a>
+            <a href="https://maps.app.goo.gl/NTS88ruh8A2B9czC9" target="_blank" class="links"></a>
+        </div>
+        <p class="contenedor3"> Y les dijo: Id por todo el mundo y predicad el evangelio a toda criatura. El que
+            creyere
+            y fuere bautizado, será salvo; mas el que no creyere, será condenado.</p>
+        <p>Marcos 16:15-16</p>
+        <span class="copyright">&copy;2024. Todos los derechos reservados.</span>
+    </footer>
+    <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>
