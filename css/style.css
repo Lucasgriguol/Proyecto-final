@@ -592,9 +592,7 @@ h2 {
   margin: 15px;
   background-color: lightblue;
   justify-content: flex-start;
-  /* Alinea el contenido a la izquierda */
   align-items: center;
-  /* Centra verticalmente los elementos */
 }
 
 .search-container input[type="text"] {

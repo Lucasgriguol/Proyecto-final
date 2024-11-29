@@ -200,3 +200,21 @@ document.getElementById("search-bar").addEventListener("input", function () {
 window.addEventListener("load", function () {
     actualizarCarrito();
 });
+// Barra de busqueda
+const filtrarProductos = (searchText) => {
+
+    const productos = document.querySelectorAll('.card');
+
+    const textoBusqueda = searchText.toLowerCase();
+
+    productos.forEach((producto) => {
+        const nombreProducto = producto.getAttribute('data-producto').toLowerCase();
+
+        
+        if (nombreProducto.includes(textoBusqueda)) {
+            producto.style.display = 'block'; 
+        } else {
+            producto.style.display = 'none'; 
+        }
+    });
+};
