@@ -161,14 +161,12 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
         return;
     }
 
-    // Obtener el mes y año de la fecha de expiración
     const [mes, anio] = fechaExpiracion.split("/").map(Number);
 
-    // Obtener la fecha actual
+    // Fecha actual
     const fechaActual = new Date();
     const fechaExpiracionDate = new Date(`20${anio}-${mes < 10 ? '0' + mes : mes}-01`);
 
-    // Validar si la fecha de expiración es futura
     if (fechaExpiracionDate < fechaActual) {
         Swal.fire({
             icon: 'error',
