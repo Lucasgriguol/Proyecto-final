@@ -148,13 +148,32 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
         return;
     }
 
-    // Validar la fecha
     const fechaExpiracionRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+
+    // Validar el formato
     if (!fechaExpiracionRegex.test(fechaExpiracion)) {
         Swal.fire({
             icon: 'error',
             title: 'Error',
             text: 'La fecha de expiración debe estar en el formato MM/AA.',
+            confirmButtonText: 'Cerrar'
+        });
+        return;
+    }
+
+    // Obtener el mes y año de la fecha de expiración
+    const [mes, anio] = fechaExpiracion.split("/").map(Number);
+
+    // Obtener la fecha actual
+    const fechaActual = new Date();
+    const fechaExpiracionDate = new Date(`20${anio}-${mes < 10 ? '0' + mes : mes}-01`);
+
+    // Validar si la fecha de expiración es futura
+    if (fechaExpiracionDate < fechaActual) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Tarjeta expirada.',
             confirmButtonText: 'Cerrar'
         });
         return;
@@ -210,11 +229,11 @@ const filtrarProductos = (searchText) => {
     productos.forEach((producto) => {
         const nombreProducto = producto.getAttribute('data-producto').toLowerCase();
 
-        
+
         if (nombreProducto.includes(textoBusqueda)) {
-            producto.style.display = 'block'; 
+            producto.style.display = 'block';
         } else {
-            producto.style.display = 'none'; 
+            producto.style.display = 'none';
         }
     });
 };
