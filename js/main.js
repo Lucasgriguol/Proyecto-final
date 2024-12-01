@@ -126,7 +126,8 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
     const fechaExpiracion = document.getElementById("fecha-expiracion").value;
     const codigoSeguridad = document.getElementById("codigo-seguridad").value;
 
-    if (!nombreTarjeta || nombreTarjeta.trim() === "" || /\d/.test(nombreTarjeta)) {
+    //Valida el nombre
+    if (!nombreTarjeta || nombreTarjeta.trim() === "" || /[^a-zA-Z\s]/.test(nombreTarjeta)) {
         Swal.fire({
             icon: 'error',
             title: 'Error',
@@ -134,10 +135,9 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
             confirmButtonText: 'Cerrar'
         });
         return;
-    }
-    
+    }    
 
-    // Validar el número de la tarjeta 
+    // Valida el número de la tarjeta 
     const numeroTarjetaRegex = /^\d{16}$/;
     if (!numeroTarjetaRegex.test(numeroTarjeta)) {
         Swal.fire({
@@ -151,7 +151,7 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
 
     const fechaExpiracionRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
 
-    // Validar el formato
+    // Valida el formato
     if (!fechaExpiracionRegex.test(fechaExpiracion)) {
         Swal.fire({
             icon: 'error',
@@ -178,7 +178,7 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
         return;
     }
 
-    // Validar el código de seguridad
+    // Valida el código de seguridad
     const codigoSeguridadRegex = /^\d{3}$/;
     if (!codigoSeguridadRegex.test(codigoSeguridad)) {
         Swal.fire({
