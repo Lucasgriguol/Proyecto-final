@@ -126,15 +126,16 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
     const fechaExpiracion = document.getElementById("fecha-expiracion").value;
     const codigoSeguridad = document.getElementById("codigo-seguridad").value;
 
-    if (!nombreTarjeta) {
+    if (!nombreTarjeta || nombreTarjeta.trim() === "" || /\d/.test(nombreTarjeta)) {
         Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'Por favor, ingresa el nombre en la tarjeta.',
+            text: 'Por favor, ingresa un nombre válido en la tarjeta.',
             confirmButtonText: 'Cerrar'
         });
         return;
     }
+    
 
     // Validar el número de la tarjeta 
     const numeroTarjetaRegex = /^\d{16}$/;
